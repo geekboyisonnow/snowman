@@ -1,28 +1,133 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+import step_0 from './images/step_0.png'
+import step_1 from './images/step_1.png'
+import step_2 from './images/step_2.png'
+import step_3 from './images/step_3.png'
+import step_4 from './images/step_4.png'
+import step_5 from './images/step_5.png'
+import step_6 from './images/step_6.png'
+import words from './words.json'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      lettersChosen: [],
+      secretWord: words[Math.floor(Math.random() * words.length)].toUpperCase()
+    }
+  }
+
+  // if this letter is in the array of letters we have already chosen
+  // ... then return the letter
+  // else
+  // ... return an _
+
+  displayLetterOrUnderscore = letter => {
+    if (this.state.secretWord.split('').includes(letter)) {
+      return letter
+    } else {
+      return '_'
+    }
+  }
+
+  _click = event => {
+    this.state.lettersChosen.push(event.target.value)
+    console.log(this.state.lettersChosen)
+    console.log(this.state.secretWord)
+    this.setState({
+      lettersChosen: this.state.lettersChosen
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+        <header>
+          <p>SNOWMAN</p>
         </header>
+        <body>
+          <div>
+            <img src={step_0} className="background" />
+          </div>
+          {this.state.secretWord.split('').map(letter => {
+            return (
+              <li>
+                {this.state.lettersChosen.includes(letter) ? letter : '_'}
+              </li>
+            )
+          })}
+          {/* <ul class="blanks">
+            <li>{this.displayLetterOrUnderscore('Q')}</li>
+            <li>{this.displayLetterOrUnderscore('n')}</li>
+            <li>{this.displayLetterOrUnderscore('o')}</li>
+            <li>{this.displayLetterOrUnderscore('W')}</li>
+            <li>{this.displayLetterOrUnderscore('m')}</li>
+            <li>{this.displayLetterOrUnderscore('p')}</li>
+            <li>{this.displayLetterOrUnderscore('n')}</li>
+          </ul> */}
+        </body>
+        <footer>
+          <row>
+            <button value="Q" onClick={this._click}>
+              Q
+            </button>
+            <button value="W" onClick={this._click}>
+              W
+            </button>
+            <button value="E" onClick={this._click}>
+              E
+            </button>
+            <button value="R" onClick={this._click}>
+              R
+            </button>
+            <button value="T" onClick={this._click}>
+              T
+            </button>
+            <button value="Y" onClick={this._click}>
+              Y
+            </button>
+            <button value="U" onClick={this._click}>
+              U
+            </button>
+            <button value="I" onClick={this._click}>
+              I
+            </button>
+            <button value="O" onClick={this._click}>
+              O
+            </button>
+            <button value="P" onClick={this._click}>
+              P
+            </button>
+          </row>
+          <row>
+            <button value="A" onClick={this._click}>
+              A
+            </button>
+            <button value="S" onClick={this._click}>
+              S
+            </button>
+            <button onClick={this._click}>D</button>
+            <button onClick={this._click}>F</button>
+            <button onClick={this._click}>G</button>
+            <button onClick={this._click}>H</button>
+            <button onClick={this._click}>J</button>
+            <button onClick={this._click}>K</button>
+            <button onClick={this._click}>L</button>
+          </row>
+          <row>
+            <button onClick={this._click}>Z</button>
+            <button onClick={this._click}>X</button>
+            <button onClick={this._click}>C</button>
+            <button onClick={this._click}>V</button>
+            <button onClick={this._click}>B</button>
+            <button onClick={this._click}>N</button>
+            <button onClick={this._click}>M</button>
+          </row>
+        </footer>
       </div>
-    );
+    )
   }
 }
-
-export default App;
+export default App
