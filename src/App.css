@@ -22,11 +22,11 @@ footer {
 #blanks {
   color: darkblue;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   list-style: none;
   font-size: 3rem;
   padding: 0;
-  margin: 50px;
+  margin: 20px;
 }
 
 body {

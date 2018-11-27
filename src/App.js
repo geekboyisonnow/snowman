@@ -34,8 +34,8 @@ class App extends Component {
 
   _click = event => {
     this.state.lettersChosen.push(event.target.value)
-    // console.log(this.state.lettersChosen)
-    // console.log(this.state.secretWord)
+    console.log(this.state.lettersChosen)
+    console.log(this.state.secretWord)
     this.setState({
       lettersChosen: this.state.lettersChosen
     })
@@ -110,22 +110,63 @@ class App extends Component {
             <button value="S" onClick={this._click}>
               S
             </button>
-            <button onClick={this._click}>D</button>
-            <button onClick={this._click}>F</button>
-            <button onClick={this._click}>G</button>
-            <button onClick={this._click}>H</button>
-            <button onClick={this._click}>J</button>
-            <button onClick={this._click}>K</button>
-            <button onClick={this._click}>L</button>
+
+            <button value="D" onClick={this._click}>
+              D
+            </button>
+
+            <button value="F" onClick={this._click}>
+              F
+            </button>
+
+            <button value="G" onClick={this._click}>
+              G
+            </button>
+
+            <button value="H" onClick={this._click}>
+              H
+            </button>
+
+            <button value="J" onClick={this._click}>
+              J
+            </button>
+
+            <button value="K" onClick={this._click}>
+              K
+            </button>
+
+            <button value="L" onClick={this._click}>
+              L
+            </button>
           </row>
           <row>
-            <button onClick={this._click}>Z</button>
-            <button onClick={this._click}>X</button>
-            <button onClick={this._click}>C</button>
-            <button onClick={this._click}>V</button>
-            <button onClick={this._click}>B</button>
-            <button onClick={this._click}>N</button>
-            <button onClick={this._click}>M</button>
+            <button value="Z" onClick={this._click}>
+              Z
+            </button>
+
+            <button value="X" onClick={this._click}>
+              X
+            </button>
+
+            <button value="C" onClick={this._click}>
+              C
+            </button>
+
+            <button value="" V onClick={this._click}>
+              V
+            </button>
+
+            <button value="B" onClick={this._click}>
+              B
+            </button>
+
+            <button value="N" onClick={this._click}>
+              N
+            </button>
+
+            <button value="M" onClick={this._click}>
+              M
+            </button>
           </row>
         </footer>
       </div>
