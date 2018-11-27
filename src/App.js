@@ -7,11 +7,23 @@ import step_3 from './images/step_3.png'
 import step_4 from './images/step_4.png'
 import step_5 from './images/step_5.png'
 import step_6 from './images/step_6.png'
+import step_7 from './images/step_7.png'
 import words from './words.json'
 
 class App extends Component {
   constructor(props) {
     super(props)
+
+    this.snowmen = [
+      step_0,
+      step_1,
+      step_2,
+      step_3,
+      step_4,
+      step_5,
+      step_6,
+      step_7
+    ]
 
     this.state = {
       lettersChosen: [],
@@ -41,16 +53,28 @@ class App extends Component {
     })
   }
 
+  whichSnowman = () => {
+    if (this.state.lettersChosen.length > 7) {
+      return this.snowmen[7]
+    } else {
+      return this.snowmen[this.state.lettersChosen.length]
+    }
+  }
+
   render() {
     return (
       <div className="App">
+        <h1>SNOWMAN</h1>
         <header>
-          <p>SNOWMAN</p>
+          <img
+            src={this.whichSnowman()}
+            alt="snowman"
+            height="35%"
+            width="35%"
+          />
         </header>
+
         <body>
-          <div>
-            <img src={step_0} className="background" />
-          </div>
           <div id="blanks">
             {this.state.secretWord.split('').map(letter => {
               return (
