@@ -34,8 +34,8 @@ class App extends Component {
 
   _click = event => {
     this.state.lettersChosen.push(event.target.value)
-    console.log(this.state.lettersChosen)
-    console.log(this.state.secretWord)
+    // console.log(this.state.lettersChosen)
+    // console.log(this.state.secretWord)
     this.setState({
       lettersChosen: this.state.lettersChosen
     })
@@ -51,13 +51,15 @@ class App extends Component {
           <div>
             <img src={step_0} className="background" />
           </div>
-          {this.state.secretWord.split('').map(letter => {
-            return (
-              <li>
-                {this.state.lettersChosen.includes(letter) ? letter : '_'}
-              </li>
-            )
-          })}
+          <div id="blanks">
+            {this.state.secretWord.split('').map(letter => {
+              return (
+                <li>
+                  {this.state.lettersChosen.includes(letter) ? letter : '_'}
+                </li>
+              )
+            })}
+          </div>
           {/* <ul class="blanks">
             <li>{this.displayLetterOrUnderscore('Q')}</li>
             <li>{this.displayLetterOrUnderscore('n')}</li>
