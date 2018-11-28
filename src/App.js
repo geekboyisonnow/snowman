@@ -57,9 +57,16 @@ class App extends Component {
     if (this.state.lettersChosen.length > 7) {
       return this.snowmen[7]
     } else {
+      // return this.state.secretWord
       return this.snowmen[this.state.lettersChosen.length]
     }
   }
+
+  // guardClause = event => {
+  //   if (this.state.lettersChosen.includes(event.target.value)) {
+  //     return
+  //   }
+  // }
 
   render() {
     return (
